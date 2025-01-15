@@ -1,0 +1,37 @@
+a)
+- Ràng buộc PRIMARY KEY đảm bảo mỗi bản ghi trong bảng là duy nhất và không có giá trị NULL.
+VD:
+CREATE TABLE student (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    date DATE
+);
+
+- Ràng buộc NOT NULL đảm bảo rằng một cột không được phép có giá trị NULL. Điều này hữu ích khi dữ liệu tại cột đó luôn phải tồn tại.
+VD:
+CREATE TABLE student (
+    id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    date DATE
+);
+
+- Ràng buộc FOREIGN KEY được sử dụng để liên kết hai bảng. Nó đảm bảo rằng giá trị trong một cột (hoặc một tập hợp cột) phải khớp với giá trị của cột tương ứng trong một bảng khác.
+VD:
+CREATE TABLE class (
+    classId INT PRIMARY KEY,
+    className VARCHAR(100)
+);
+
+CREATE TABLE student (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    classId INT,
+    FOREIGN KEY (classId) REFERENCES class(classId)
+);
+
+b)
+- Ngăn chặn dữ liệu trùng lặp hoặc không hợp lệ.
+- Đảm bảo các cột quan trọng luôn có giá trị.
+- Giữ liên kết hợp lệ giữa các bảng.
+- Giảm lỗi khi thêm, sửa, xóa dữ liệu.
+- Cải thiện hiệu suất thông qua chỉ mục tự động.
